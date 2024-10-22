@@ -1,0 +1,17 @@
+services:
+   nginx-dev:
+      extends:
+        file: common.yml
+        service: app
+
+   nginx-prod:
+      extends:
+        file: common.yml
+        service: app
+      image: ${DOCKER_HUB_CRED_USR}/${toRepositoryName}:${tag}
+
+   nginx-uat:
+      extends:
+        file: common.yml
+        service: app
+      image: ${DOCKER_HUB_CRED_USR}/${toRepositoryName}:${tag}
