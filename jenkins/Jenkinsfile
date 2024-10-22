@@ -58,7 +58,7 @@ pipeline {
                 stage('Docker Push') {
                     steps {
                         echo 'Pushing image to local registry'
-                        sh "docker tag ${LOCAL_REGISTRY}/${toRepositoryName}:${buildNumber} ${LOCAL_REGISTRY}/${toRepositoryName}:${buildNumber}"
+                        sh "docker tag ${DOCKER_HUB_CRED_USR}/${toRepositoryName}:${buildNumber} ${LOCAL_REGISTRY}/${toRepositoryName}:${buildNumber}"
                         sh "docker push ${LOCAL_REGISTRY}/${toRepositoryName}:${buildNumber}"
                     }
                 }
